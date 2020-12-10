@@ -46,5 +46,13 @@ namespace CSharpWebAPI.Services
 
         return oldBook;
     }
+
+    public string CheckoutBook(Book checkout, int index)
+    {
+        Book checkedOut = FakeDB.Books[index];
+        checkedOut.IsAvailable = false; 
+
+        return $"You checkedout {FakeDB.Books[index].Title}. Enjoy!";
+    }
   }
 }

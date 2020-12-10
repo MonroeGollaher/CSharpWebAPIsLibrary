@@ -105,5 +105,19 @@ namespace CSharpWebAPI.Controllers
             }
         }
 
+        [HttpPut("{inded}")]
+        public ActionResult<IEnumerable<Book>> CheckoutBook(Book checkout, int index)
+        {
+            try
+            {
+                return Ok(_ls.CheckoutBook(checkout, index)); 
+            }
+            catch (System.Exception err)
+            {
+                
+                return BadRequest(err.Message);
+            }
+        }
+
     }
 }
