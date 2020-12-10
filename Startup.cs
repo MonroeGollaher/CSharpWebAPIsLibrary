@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using CSharpWebAPI.Services;
 
 namespace CSharpWebAPI
 {
@@ -32,6 +33,7 @@ namespace CSharpWebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CSharpWebAPI", Version = "v1" });
             });
+            services.AddTransient<LibraryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
