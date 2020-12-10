@@ -49,5 +49,61 @@ namespace CSharpWebAPI.Controllers
             }
         }
 
+        [HttpDelete("{index}")]
+        public ActionResult<string> DeleteBook(int index)
+        {
+            try
+            {
+                return Ok(_ls.DeleteBook(index));
+            }
+            catch (System.Exception err)
+            {
+                
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpGet("{index}")]
+        public ActionResult<IEnumerable<Book>> ReadBook(int index)
+        {
+            try
+            {
+                return Ok(_ls.ReadBook(index));
+            }
+            catch (System.Exception err)
+            {
+                
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpGet("{index}")]
+        public ActionResult<Book> GetOneBook(int index)
+        {
+            try
+            {
+                return Ok(_ls.GetOneBook(index)); 
+            }
+            catch (System.Exception err)
+            {
+                
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpPut("{index}")]
+        public ActionResult<IEnumerable<Book>> EditBook([FromBody] Book editedBook, int index)
+        {
+            try
+            {
+                return Ok(_ls.EditBook(editedBook, index));
+            }
+            catch (System.Exception err)
+            {
+                
+                return BadRequest(err.Message);
+            }
+        }
+
     }
 }
